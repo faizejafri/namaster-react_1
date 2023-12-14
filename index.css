@@ -1,5 +1,10 @@
-/* #parent {
-    color: red;
-    border: 2px solid black;
-    margin-left: 40px;
-} */
+.items {
+   display: flex; 
+   justify-content: space-between;
+   height: 20;
+}
+
+#searchBar {
+    width: 200px;
+    height: 10px;
+}

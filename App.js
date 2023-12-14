@@ -1,30 +1,41 @@
-/*
-<div id="parent">
-    <div id="child">
-        <h1>I'm an h1 tag</h1>
-        <h2>I'm an h2 tag</h2>
-    </div>
+import React from "react";
+import ReactDOM from "react-dom/client";
+import logo from "./images/Swiggy_logo.png";
+import profile from "./images/profile_icon.png";
 
-    <div id="child2">
-        <h1>I'm an h1 tag</h1>
-        <h2>I'm an h2 tag</h2>
-    </div>
-</div>
+const function1 = <h2>This is my function</h2>;
+const function2 = <h2>This is my function2</h2>;
 
-*/
+const Title = () => (
+  <h2 className="titleClass">
+    {function2}
+    This is title from first component
+  </h2>
+);
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I'm an h1 tag"),
-    React.createElement("h2", {}, "I'm an h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I'm an h1 tag"),
-    React.createElement("h2", {}, "I'm an h2 tag"),
-  ]),
-]);
+const Heading = () => (
+  <div>
+    {function1}
+    <Title />
+    {Title()}
+    <Title></Title>
+    <h2 id="heading" className="headingClass">
+      This is heading from Heading component
+    </h2>
+  </div>
+);
 
-console.log(parent);
+const Header = () => {
+  return (
+    <>
+      <div className="items">
+        <img src={logo} className="logo"></img>
+        <input id="searchBar" type="text" placeholder="Please enter text to Search"></input>
+        <img src={profile} className="logo"></img>
+      </div>
+    </>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<Header />);
